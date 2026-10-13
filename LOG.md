@@ -10,40 +10,23 @@ Delete the example before you submit.
 
 
 
-## Example — delete this
+### CC-01 — "The search suggestions are behind everything"
 
-### CC-99 — "The cart total is wrong"
+**Reproduced:** Typed `be` in the search box. The suggestions appeared,
+but the category bar covered the lower part of the list, making the lower
+suggestions difficult to click.
 
-**Reproduced:** Added 2 dosas at Rs. 60 each. The cart showed
-Rs. 119.99999 instead of Rs. 130. Happened every time, on any dish with
-a price ending in .50.
+**Cause:** `.search-wrap` had `z-index: 1`, while the filter/category area
+had a higher stacking level. The suggestion box's `z-index: 100` could not
+escape its parent stacking level.
 
-**Cause:** The total was being added up with plain floating point and
-never rounded, so 0.1 + 0.2 style errors showed up on screen. The
-rounding helper existed but this one place was not using it.
+**Fix:** Changed `.search-wrap` to `z-index: 50` in `frontend/style.css`,
+placing the complete search area above the category bar.
 
-**Fix:** Ran the total through the existing rounding helper instead of
-adding a new one, so every price on screen goes through the same path.
+**Checked:** Refreshed the page and searched for `be`. The complete
+suggestions list appeared above the category bar.
 
-**Checked:** Cart, checkout and the order screen all show Rs. 130 now.
-Prices without decimals still show without a trailing .00.
-
-**Time:** about 40 minutes, most of it working out that the cart and the
-order screen round in different places.
-
-
-
-## CC-0X — "<the complaint, in short>"
-
-**Reproduced:**
-
-**Cause:**
-
-**Fix:**
-
-**Checked:**
-
-**Time:**
+**Time:** Not recorded.
 
 
 
