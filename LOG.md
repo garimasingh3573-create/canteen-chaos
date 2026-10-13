@@ -30,6 +30,24 @@ suggestions list appeared above the category bar.
 
 
 
+### CC-02 — "Can't read anything in dark mode"
+
+**Reproduced:** In dark mode, the dish names and prices were very hard to
+read. In light mode, they were easy to read.
+
+**Cause:** The dish card used a fixed dark text color. It stayed dark when
+the theme changed to dark mode.
+
+**Fix:** Changed the dish card text color to `var(--ink)` in
+`frontend/style.css`. This variable changes with the theme.
+
+**Checked:** Refreshed the page in dark mode. Dish names and prices were
+clear and readable.
+
+**Time:** Not recorded.
+
+
+
 ## Could not fix
 
 For anything you investigated but did not solve. Say what you tried and
