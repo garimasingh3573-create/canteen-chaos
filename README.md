@@ -88,6 +88,12 @@ git restore backend/data/
 All ten assigned bugs were fixed and checked locally. The reproduction steps,
 root causes, fixes, and checks are in `LOG.md`.
 
+## Live demo
+
+The deployed application is available at:
+
+https://canteen-chaos-garima.onrender.com
+
 
 
 ## Your task
