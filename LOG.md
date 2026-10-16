@@ -48,6 +48,25 @@ clear and readable.
 
 
 
+### CC-03 — "The menu is wider than my phone"
+
+**Reproduced:** Set the mobile screen width to `320px` and searched for
+`Paneer Butter Masala`. The long name and the right side of the card were
+cut off.
+
+**Cause:** On small screens, the dish name button used `width: max-content`.
+This made it as wide as the full name.
+
+**Fix:** Changed the mobile rule to `width: 100%; min-width: 0` in
+`frontend/style.css`. The name can now wrap inside the card.
+
+**Checked:** Tested again at `320px`. The name wrapped and the full
+`Add to Cart` button was visible.
+
+**Time:** Not recorded.
+
+
+
 ## Could not fix
 
 For anything you investigated but did not solve. Say what you tried and
