@@ -5,8 +5,8 @@ dishes to a cart, apply coupons, pick a collection time and place an
 order. Staff watch the queue on a counter dashboard and move orders
 along.
 
-It works — mostly. Some things in it are broken, and your job is to
-find and fix the ones you are given.
+The assigned debugging work is recorded in `LOG.md`. It explains how each
+bug was reproduced, what caused it, and how it was fixed.
 
 
 
@@ -27,6 +27,13 @@ working late:
 
 ```bash
 TZ=Pacific/Auckland npm start
+```
+
+In Windows PowerShell, use:
+
+```powershell
+$env:TZ = "Pacific/Auckland"
+npm start
 ```
 
 Other settings, all optional:
@@ -68,6 +75,18 @@ Reset the data if a test run leaves it in a strange state:
 ```bash
 git checkout -- backend/data/
 ```
+
+In Windows PowerShell, the equivalent command is:
+
+```powershell
+git restore backend/data/
+```
+
+
+## Debugging result
+
+All ten assigned bugs were fixed and checked locally. The reproduction steps,
+root causes, fixes, and checks are in `LOG.md`.
 
 
 
