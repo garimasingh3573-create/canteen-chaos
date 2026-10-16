@@ -159,6 +159,23 @@ appeared.
 
 
 
+### CC-08 — "An old coupon still works"
+
+**Reproduced:** Added a dish and applied `FRESHERS24`. The coupon was
+expired, but the app still gave a discount.
+
+**Cause:** The pricing code did not check the coupon expiry date.
+
+**Fix:** Added an expiry-date check in `backend/logic/pricing.js`. Expired
+coupons are now rejected.
+
+**Checked:** Applied `FRESHERS24` again. The app showed `This coupon has
+expired` and did not reduce the total.
+
+**Time:** Not recorded.
+
+
+
 ## Could not fix
 
 For anything you investigated but did not solve. Say what you tried and
