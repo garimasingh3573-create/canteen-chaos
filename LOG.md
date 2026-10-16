@@ -103,6 +103,27 @@ category bar stayed visible.
 
 
 
+### CC-06 — "I ordered more than they had"
+
+**Reproduced:** A dish showed `Only 3 left`. I added 4 to the cart and
+the order was accepted.
+
+**Cause:** The backend only checked if stock was zero. It did not compare
+the requested quantity with the stock.
+
+**Fix:** Added a backend check in `backend/logic/validation.js`. An order
+is rejected when its quantity is greater than the stock. Also added a
+frontend check in `frontend/js/state.js`, so the `+` button cannot increase
+the quantity above the stock.
+
+**Checked:** With 3 items in stock, the cart stopped at 3 and showed
+`Only 3 left` when I tried to add a fourth. The backend also rejected an
+order that went over the stock limit.
+
+**Time:** Not recorded.
+
+
+
 ## Could not fix
 
 For anything you investigated but did not solve. Say what you tried and

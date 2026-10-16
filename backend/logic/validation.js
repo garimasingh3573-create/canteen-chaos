@@ -33,6 +33,9 @@ function validateLine(item, index, menu, now, seen) {
   if (qty > MAX_QTY_PER_DISH) {
     errors.push(`${where}: you cannot order more than ${MAX_QTY_PER_DISH} of one dish`);
   }
+  if (qty > Number(dish.stock)) {
+    errors.push(`${dish.name}: only ${dish.stock} left`);
+  }
 
   const blocked = blockedReason(dish, now);
   if (blocked && isServedNow(dish, now) === false) errors.push(`${dish.name}: ${blocked}`);
