@@ -67,6 +67,24 @@ This made it as wide as the full name.
 
 
 
+### CC-04 — "The buttons don't work on my tablet"
+
+**Reproduced:** Opened the app in iPad Mini view. The **Add to Cart** and
+star buttons did not respond.
+
+**Cause:** Invisible layers were placed over the dish cards on tablet
+screens. These layers received the clicks.
+
+**Fix:** Added `pointer-events: none` to the invisible tablet layers in
+`frontend/style.css`. They now ignore clicks.
+
+**Checked:** Refreshed the iPad Mini view. The cart count increased and the
+star showed a saved message.
+
+**Time:** Not recorded.
+
+
+
 ## Could not fix
 
 For anything you investigated but did not solve. Say what you tried and
