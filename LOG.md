@@ -124,6 +124,41 @@ order that went over the stock limit.
 
 
 
+### CC-07 — "Cancelling makes it worse"
+
+**Reproduced:** Rajma Chawal had 25 items. I ordered one, so it became
+24. After cancelling the order, it became 23 instead of returning to 25.
+
+**Cause:** The cancellation code subtracted the cancelled quantity from
+stock. It should add the quantity back.
+
+**Fix:** Changed the cancellation calculation in
+`backend/logic/validation.js` from subtraction to addition.
+
+**Checked:** Ordered and cancelled one Rajma Chawal. Stock returned to 25.
+
+**Time:** Not recorded.
+
+
+
+### Supporting fix — "My Orders showed no orders"
+
+**Reproduced:** Placed an order and opened **My Orders**. The page said
+`No orders found`, even though the browser had saved order tokens.
+
+**Cause:** The browser sent `memberId`, but the backend compared it with
+`userId`. The names did not match.
+
+**Fix:** Changed the backend to compare orders with `req.query.memberId` in
+`backend/routes/orders.routes.js`.
+
+**Checked:** Restarted the server and opened **My Orders**. The saved orders
+appeared.
+
+**Time:** Not recorded.
+
+
+
 ## Could not fix
 
 For anything you investigated but did not solve. Say what you tried and
