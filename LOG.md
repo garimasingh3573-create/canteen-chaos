@@ -85,6 +85,24 @@ star showed a saved message.
 
 
 
+### CC-05 — "The category bar scrolls away on my phone"
+
+**Reproduced:** Opened the app in iPhone SE view and scrolled down. The
+filter and category bar disappeared.
+
+**Cause:** The mobile view used `overflow-x: hidden`. This stopped the
+sticky bar from using the browser page as its scrolling area.
+
+**Fix:** Changed it to `overflow-x: clip` in `frontend/style.css`. This
+still hides sideways overflow without breaking the sticky bar.
+
+**Checked:** Refreshed the phone view and scrolled again. The filter and
+category bar stayed visible.
+
+**Time:** Not recorded.
+
+
+
 ## Could not fix
 
 For anything you investigated but did not solve. Say what you tried and
