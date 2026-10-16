@@ -176,6 +176,24 @@ expired` and did not reduce the total.
 
 
 
+### CC-09 — "The menu shows more dishes than it should"
+
+**Reproduced:** The menu requested 5 dishes, but it showed all 37 dishes
+at once.
+
+**Cause:** The pagination code made a 5-dish list but returned the original
+full list instead.
+
+**Fix:** Changed the returned value from `items: list` to `items` in
+`backend/logic/search.js`.
+
+**Checked:** Refreshed the page. It showed 5 dishes and total 37. More
+dishes can load while scrolling.
+
+**Time:** Not recorded.
+
+
+
 ## Could not fix
 
 For anything you investigated but did not solve. Say what you tried and
