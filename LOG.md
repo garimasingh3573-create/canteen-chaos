@@ -194,6 +194,23 @@ dishes can load while scrolling.
 
 
 
+### CC-10 — "Sorting by price is backwards"
+
+**Reproduced:** Price low to high showed the expensive dishes first. Price
+high to low showed the cheap dishes first.
+
+**Cause:** The two price comparison functions were reversed.
+
+**Fix:** Changed `price-asc` to use `a.price - b.price` and
+`price-desc` to use `b.price - a.price` in `backend/logic/search.js`.
+
+**Checked:** Low to high started at `Rs. 16.50`. High to low started at
+`Rs. 138.50`.
+
+**Time:** Not recorded.
+
+
+
 ## Could not fix
 
 For anything you investigated but did not solve. Say what you tried and
